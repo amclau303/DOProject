@@ -8,7 +8,6 @@ public class CurrencyConverter {
     public String output = "";
     //Output error message
     public String errorMessage;
-
     public double amount;
     public String currency;
 

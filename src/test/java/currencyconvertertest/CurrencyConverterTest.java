@@ -32,7 +32,7 @@ public class CurrencyConverterTest {
     }
 
     @Test
-    public void testRandomCharacter() throws Exception {
+    public void testRandomCurrency() throws Exception {
         CurrencyConverter currencyConverter = new CurrencyConverter(new String[]{"1", "aaa"});
         assertEquals("Currency Error", currencyConverter.errorMessage);
     }
@@ -47,5 +47,17 @@ public class CurrencyConverterTest {
     public void testLargeAmount() throws Exception {
         CurrencyConverter currencyConverter = new CurrencyConverter(new String[]{"1000", "dollars"});
         assertEquals("£740.0 €880.0", currencyConverter.output);
+    }
+
+    @Test
+    public void testStandardOutput() throws Exception {
+        CurrencyConverter currencyConverter = new CurrencyConverter(new String[]{"1", "euros"});
+        assertEquals("$1.31 £0.84", currencyConverter.output);
+
+        currencyConverter = new CurrencyConverter(new String[]{"1", "dollars"});
+        assertEquals("£0.74 €0.88", currencyConverter.output);
+
+        currencyConverter = new CurrencyConverter(new String[]{"1", "pounds"});
+        assertEquals("$1.36 €1.19", currencyConverter.output);
     }
 }
