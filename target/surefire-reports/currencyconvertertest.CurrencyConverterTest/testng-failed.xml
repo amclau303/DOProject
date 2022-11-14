@@ -5,7 +5,7 @@
     <classes>
       <class name="currencyconvertertest.CurrencyConverterTest">
         <methods>
-          <include name="test"/>
+          <include name="testTextManipulation"/>
         </methods>
       </class> <!-- currencyconvertertest.CurrencyConverterTest -->
     </classes>
