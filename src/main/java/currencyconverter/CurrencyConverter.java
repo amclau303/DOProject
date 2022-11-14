@@ -4,17 +4,48 @@ import java.text.DecimalFormat;
 
 public class CurrencyConverter {
 
+    // Output string for testing
     public String output = "";
+    //Output error message
+    public String errorMessage;
+
+    public double amount;
+    public String currency;
 
     public CurrencyConverter(String[] args) throws Exception{
 
-        double amount, dollar, pound, code, euro;
+        double dollar, pound, euro;
 
         DecimalFormat f = new DecimalFormat("##.##");
 
-        amount = Integer.parseInt(args[0]);
-        String currency = args[1].toLowerCase();
+        if (args.length !=2){
+            errorMessage="No Input";
+            System.out.println("No input");
+            return;
+        } else {
+            currency = args[1].toLowerCase();
+        }
 
+        try{
+            amount = Integer.parseInt(args[0]);
+        }catch (NumberFormatException e) {
+            errorMessage = "Amount Error";
+            System.out.println("Incorrect amount input");
+            return;
+        }
+
+
+        if (!currency.equals("dollars") && !currency.equals("pounds") && !currency.equals("euros")){
+            System.out.println("Incorrect currency input.");
+            errorMessage = "Currency Error";
+            return;
+        }
+
+        if (!currency.equals("dollars") && !currency.equals("pounds") && !currency.equals("euros")){
+            errorMessage = "Currency Error";
+            System.out.println("Incorrect currency input.");
+            return;
+        }
 
 
         // For amounts Conversion
