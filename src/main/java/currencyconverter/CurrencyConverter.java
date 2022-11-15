@@ -74,7 +74,7 @@ public class CurrencyConverter {
                 this.output = "$" + f.format(dollar) + " £" + f.format(pound);
                 break;
         }
-        System.out.println("Thank you for using the converter.");
+        System.out.println("Thank you for using the converter :).");
 
     }
 
